@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### version
+- Rails 6.1.7.6
+- node.js v16.13.0
 
-Things you may want to cover:
+### setup
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ git clone https://github.com/1-eyeddd/enter-exit-counter-app.git
+$ cd enter-exit-counter-app
+$ rails db:migrate
+$ rails webpacker:install
+$ yarn add @babel/plugin-proposal-private-methods @babel/plugin-proposal-private-property-in-object
+```
