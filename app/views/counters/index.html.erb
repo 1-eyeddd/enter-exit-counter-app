@@ -1,0 +1,31 @@
+<div class="container mt-5 text-center">
+  <h1 id="current-time"></h1>
+  <div class="alert alert-danger" role="alert">
+    <strong>混雑</strong>
+  </div>
+  <div class="face-icon" style="font-size: 5em;">😠</div>
+  <div class="my-4">
+    <h3>混雑度 <span id="fullness-level"><%= @congestion_rate %>%</span></h3>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" style="width: <%= @congestion_rate %>%;" aria-valuenow="<%= @congestion_rate %>" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+  <button id="refresh-button" class="btn btn-primary">更新</button>
+</div>
+
+<script>
+  function updateTime() {
+    const now = new Date();
+    const timeString = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
+    document.getElementById('current-time').innerText = timeString + ' 時点';
+  }
+  
+  // ページ読み込み時に時間を更新
+  updateTime();
+
+  // 更新ボタンを押したときに時間を更新し、ページを再読み込みする
+  document.getElementById('refresh-button').addEventListener('click', function() {
+    updateTime();
+    location.reload(); // ページを再読み込みして更新します。
+  });
+</script>
