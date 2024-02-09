@@ -1,9 +1,23 @@
 <div class="container mt-5 text-center">
   <h1 id="current-time"></h1>
-  <div class="alert alert-danger" role="alert">
-    <strong>混雑</strong>
-  </div>
-  <div class="face-icon" style="font-size: 5em;">😠</div>
+  
+  <% if @congestion_rate < 35 %>
+    <div class="alert alert-success" role="alert">
+      <strong>混雑していない</strong>
+    </div>
+    <div class="face-icon" style="font-size: 5em;">😃</div>
+  <% elsif @congestion_rate < 75 %>
+    <div class="alert alert-warning" role="alert">
+      <strong>少し混雑</strong>
+    </div>
+    <div class="face-icon" style="font-size: 5em;">😐</div>
+  <% else %>
+    <div class="alert alert-danger" role="alert">
+      <strong>混雑</strong>
+    </div>
+    <div class="face-icon" style="font-size: 5em;">😠</div>
+  <% end %>
+
   <div class="my-4">
     <h3>混雑度 <span id="fullness-level"><%= @congestion_rate %>%</span></h3>
     <div class="progress">
